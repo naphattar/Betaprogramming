@@ -2,7 +2,7 @@
 using namespace std;
 char table[5][5];
 int score = 0;
-int m,n,k,r,c;
+int m,n,k,row,col;
 pair<int,int> d[4] = {{-1,0},{1,0},{0,1},{0,-1}};
 
 bool intable(int r,int c){
@@ -22,6 +22,7 @@ void checkvalidmove(int r,int c ,char direct){
             table[r][c+1] = table[r][c];
             table[r][c] = '-';
             c++;
+            col++;
             return;
         }
     }else{
@@ -33,6 +34,7 @@ void checkvalidmove(int r,int c ,char direct){
             table[r][c-1] = table[r][c];
             table[r][c] = '-';
             c--;
+            col--;
             return;
         }
     }
@@ -46,6 +48,7 @@ void fallmove(int r,int c){
             table[r+1][c] = table[r][c];
             table[r][c] = '-';
             r++;
+            row++;
         }
     }
     if( table[r][c] == '-' || table[r][c] == '#'){
@@ -63,6 +66,8 @@ void fallmove(int r,int c){
                 fallmove(r+dr,c+dc);
                 r = r+dr;
                 c = c+dc;
+                row = row+dr;
+                col = col+dc;
                 break;
             }
         }
@@ -79,9 +84,9 @@ int main(){
     cin >> k;
     char direct;
     for(int i = 0;i<k;i++){
-        cin >> r >> c >> direct;
-        checkvalidmove(r,c,direct);
-        fallmove(r,c);
+        cin >> row >> col >> direct;
+        checkvalidmove(row,col,direct);
+        fallmove(row,col);
     }
     cout << score << endl;
     for(int i = 0;i<n;i++){

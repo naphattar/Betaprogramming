@@ -22,6 +22,6 @@ int main(){
         if(p > ans){
             ans = p;
         }
-    } while (next_permutation(order,order+n));
+    } while(next_permutation(order,order+n));
     cout << fixed << setprecision(12) << ans*100 << endl;;
 }

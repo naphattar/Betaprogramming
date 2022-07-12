@@ -2,7 +2,8 @@
 using namespace std;
 void solve() {
 int n; cin >> n;
-vector go(n+5);
+
+    vector go(n+5);
 for (int i = 1; i <= n; i++) cin >> go[i];
 vector vi(n+5);
 int ans = -1;

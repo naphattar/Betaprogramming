@@ -1,2 +1,2 @@
 
-            if(! contain(table[i][j],invalidtile)){
+        rect t;

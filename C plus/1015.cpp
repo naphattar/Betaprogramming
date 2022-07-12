@@ -3,7 +3,6 @@ using namespace std;
 int n,result = 0;
 int table[21][21] = {0};
 void checktile(int i,int j){
-    int check = 0;
     if(table[i][j] == 0) return;
     if(table[i][j] == table[i+1][j+1] || table[i][j] == table[i+1][j-1] || table[i][j] == table[i-1][j+1] || table[i][j] == table[i-1][j-1]) return;
     if(table[i][j] == table[i][j+1] && table[i][j] == table[i+1][j] && table[i][j] != table[i-1][j] && table[i][j] != table[i][j-1]){
